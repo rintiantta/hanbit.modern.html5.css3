@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>SVG With Rapael</title>
+    <script src="http://code.jquery.com/jquery-1.7.2.js"></script>
+    <script src="raphael-min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 변수를 선언합니다.
+            var canvas = document.getElementById('canvas');
+            var paper = Raphael(canvas, 700, 400);
+
+            // 원을 생성합니다.
+            var rect = paper.rect(0, 0, 700, 300);
+            var circle = paper.circle(350, 150, 100);
+
+            // 색상 및 선을 지정합니다.
+            rect.attr('fill', 'red');
+
+            circle.attr('fill', 'orange');
+            circle.attr('stroke', 'black');
+        });
+    </script>
+</head>
+<body>
+    <div id="canvas"></div>
+</body>
+</html>

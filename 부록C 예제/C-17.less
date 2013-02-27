@@ -1,0 +1,37 @@
+.linearGradient(@start, @end) {
+    background: @start;
+    background: -moz-linear-gradient(top, @start 0%, @end 100%);
+    background: -webkit-linear-gradient(top, @start 0%, @end 100%);
+    background: -o-linear-gradient(top, @start 0%, @end 100%);
+    background: -ms-linear-gradient(top, @start 0%, @end 100%);
+    background: linear-gradient(top, @start 0%, @end 100%);
+}
+ 
+.button(@width, @height, @radius) {
+    width: @width;
+    height: @height;
+    line-height: @height;
+    text-align: center;
+    border-radius: @radius;
+}
+ 
+* { margin: 0; padding: 0; }
+div {
+    margin: 10px;
+    float: left;
+ 
+    &:nth-child(1) {
+        .linearGradient(#0094FF, #004F89);
+        .button(200px, 100px, 10px);
+    }
+ 
+    &:nth-child(2) {
+        .linearGradient(#0094FF + #CC0000, #004F89 + #CC0000);
+        .button(200px, 100px, 10px);
+    }
+ 
+    &:nth-child(3) {
+        .linearGradient(#0094FF + #FF0000, #004F89 + #FF0000);
+        .button(200px, 100px, 10px);
+    }
+}

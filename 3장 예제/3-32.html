@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Selector Basic Page</title>
+    <style>
+        p { counter-increment: rint; }
+        p::before { content: counter(rint) "."; }
+        p::after { content: " - " attr(data-page) " page"; }
+        p::first-letter { font-size: 3em; }
+    </style>
+</head>
+<body>
+    <h1>Lorem ipsum dolor sit amet</h1>
+    <p data-page="52">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p data-page="273">Aenean ac erat et massa vehicula laoreet consequat et sem.</p>
+</body>
+</html>

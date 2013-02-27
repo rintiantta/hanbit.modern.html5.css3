@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Chapter 7</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 본문에서는 다루지 않은 코드입니다. 부록 A에서 살펴보는 플러그입니다. -->
+    <!--  구 버전의 인터넷 익스플로러에서 HTML5 태그를 인식하게 합니다. -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- 초기화 -->
+    <style>
+        * { margin: 0; padding: 0; }
+        body { font-family: 'Helvetica', sans-serif; }
+        li { list-style: none; }
+        a { text-decoration: none; }
+    </style>
+    <!-- 헤더 -->
+    <style>
+        #main_header {
+            height: 60px;
+            line-height: 60px;
+            padding-left: 10px;
+            border-bottom: 1px solid black;
+
+            background: #1D4088;
+            color: white;
+        }
+    </style>
+    <!-- 네비게이션 -->
+    <style>
+        #main_gnb {
+            overflow: hidden;
+            border-bottom: 1px solid black;
+            background: #32394A;
+        }
+        #main_gnb > ul.left {
+            overflow: hidden;
+            float: left;
+        }
+        #main_gnb > ul.right {
+            overflow: hidden;
+            float: right;
+        }
+        #main_gnb > ul.left > li { float: left; }
+        #main_gnb > ul.right > li { float: left; }
+
+        /* a 태그 설정 */
+        #main_gnb a {
+            /* 레이아웃 설정 */
+            display: block;
+            padding: 10px 20px;
+
+            /* 색상 설정 */
+            border-left: 1px solid #5F6673;
+            border-right: 1px solid #242A37;
+            color: white;
+            font-weight: bold;
+        }
+        body { min-width: 760px; }
+    </style>
+    <!-- 콘텐츠 -->
+    <style>
+        #wrap { overflow: hidden; }
+        #wrap > #main_lnb { 
+            float: left;
+            width: 200px;
+        }
+        #wrap > #content_wrap {
+            float: left;
+            width: 100%;
+            *width: 99.9%;
+            margin-right: -200px;
+        }
+        #wrap > #content_wrap > #content { padding-right: 200px; }
+    </style>
+    <!-- 수직 목록 -->
+    <style>
+        #wrap { background: #71B1D1; }
+        #main_lnb > ul > li > a {
+            display: block;
+            height:40px; line-height: 40px;
+            padding-left: 15px;
+
+            border-top: 1px solid #96D6F6;
+            border-bottom: 1px solid #6298B2;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+    <!-- 본문 -->
+    <style>
+        #content {
+            background: white;
+            border-left: 1px solid black;
+        }
+        article { padding: 10px; }
+    </style>
+    <!-- 푸터 -->
+    <style>
+        #main_footer {
+            padding: 10px;
+            border-top: 3px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header id="main_header">
+        <h1>Fluid</h1>
+    </header>
+    <nav id="main_gnb">
+        <ul class="left">
+            <li><a href="#">Button</a></li>
+            <li><a href="#">Button</a></li>
+            <li><a href="#">Button</a></li>
+            <li><a href="#">Button</a></li>
+            <li><a href="#">Button</a></li>
+            <li><a href="#">Button</a></li>
+        </ul>
+        <ul class="right">
+            <li><a href="#">Button</a></li>
+            <li><a href="#">Button</a></li>
+        </ul>
+    </nav>
+    <div id="wrap">
+        <nav id="main_lnb">
+            <ul>
+                <li><a href="#">Button</a></li>
+                <li><a href="#">Button</a></li>
+                <li><a href="#">Button</a></li>
+                <li><a href="#">Button</a></li>
+                <li><a href="#">Button</a></li>
+            </ul>
+        </nav>
+        <div id="content_wrap">
+            <div id="content">
+                <article>
+                    <h1>Lorem ipsum dolor sit amet</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus hendrerit mi, at pretium purus convallis non. Integer semper magna ac mauris hendrerit iaculis ac faucibus turpis. Praesent pharetra sem et nibh auctor auctor adipiscing augue rutrum. Ut sapien quam, bibendum eget malesuada non, porta sed ligula. Donec interdum suscipit mattis. Praesent dictum odio non nisi pharetra pellentesque. Phasellus nec quam sit amet nunc ullamcorper pulvinar nec quis tellus. Pellentesque consectetur tellus ac augue tincidunt luctus. Aenean consectetur, justo vel vestibulum cursus, risus arcu ornare dolor, nec elementum diam erat ac tortor. Morbi eleifend, erat sit amet posuere pretium, purus dui ullamcorper urna, eu rutrum mi augue tristique odio. Proin commodo mi non nibh interdum ultricies. Donec vitae leo quis ante vestibulum accumsan ut sed nulla. Maecenas ligula orci, fringilla ac elementum eget, congue quis dolor. Cras sagittis rhoncus faucibus.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus hendrerit mi, at pretium purus convallis non. Integer semper magna ac mauris hendrerit iaculis ac faucibus turpis. Praesent pharetra sem et nibh auctor auctor adipiscing augue rutrum. Ut sapien quam, bibendum eget malesuada non, porta sed ligula. Donec interdum suscipit mattis. Praesent dictum odio non nisi pharetra pellentesque. Phasellus nec quam sit amet nunc ullamcorper pulvinar nec quis tellus. Pellentesque consectetur tellus ac augue tincidunt luctus. Aenean consectetur, justo vel vestibulum cursus, risus arcu ornare dolor, nec elementum diam erat ac tortor. Morbi eleifend, erat sit amet posuere pretium, purus dui ullamcorper urna, eu rutrum mi augue tristique odio. Proin commodo mi non nibh interdum ultricies. Donec vitae leo quis ante vestibulum accumsan ut sed nulla. Maecenas ligula orci, fringilla ac elementum eget, congue quis dolor. Cras sagittis rhoncus faucibus.</p>
+                </article>
+                <article>
+                    <h1>Lorem ipsum dolor sit amet</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus hendrerit mi, at pretium purus convallis non. Integer semper magna ac mauris hendrerit iaculis ac faucibus turpis. Praesent pharetra sem et nibh auctor auctor adipiscing augue rutrum. Ut sapien quam, bibendum eget malesuada non, porta sed ligula. Donec interdum suscipit mattis. Praesent dictum odio non nisi pharetra pellentesque. Phasellus nec quam sit amet nunc ullamcorper pulvinar nec quis tellus. Pellentesque consectetur tellus ac augue tincidunt luctus. Aenean consectetur, justo vel vestibulum cursus, risus arcu ornare dolor, nec elementum diam erat ac tortor. Morbi eleifend, erat sit amet posuere pretium, purus dui ullamcorper urna, eu rutrum mi augue tristique odio. Proin commodo mi non nibh interdum ultricies. Donec vitae leo quis ante vestibulum accumsan ut sed nulla. Maecenas ligula orci, fringilla ac elementum eget, congue quis dolor. Cras sagittis rhoncus faucibus.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus hendrerit mi, at pretium purus convallis non. Integer semper magna ac mauris hendrerit iaculis ac faucibus turpis. Praesent pharetra sem et nibh auctor auctor adipiscing augue rutrum. Ut sapien quam, bibendum eget malesuada non, porta sed ligula. Donec interdum suscipit mattis. Praesent dictum odio non nisi pharetra pellentesque. Phasellus nec quam sit amet nunc ullamcorper pulvinar nec quis tellus. Pellentesque consectetur tellus ac augue tincidunt luctus. Aenean consectetur, justo vel vestibulum cursus, risus arcu ornare dolor, nec elementum diam erat ac tortor. Morbi eleifend, erat sit amet posuere pretium, purus dui ullamcorper urna, eu rutrum mi augue tristique odio. Proin commodo mi non nibh interdum ultricies. Donec vitae leo quis ante vestibulum accumsan ut sed nulla. Maecenas ligula orci, fringilla ac elementum eget, congue quis dolor. Cras sagittis rhoncus faucibus.</p>
+                </article>
+                <article>
+                    <h1>Lorem ipsum dolor sit amet</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus hendrerit mi, at pretium purus convallis non. Integer semper magna ac mauris hendrerit iaculis ac faucibus turpis. Praesent pharetra sem et nibh auctor auctor adipiscing augue rutrum. Ut sapien quam, bibendum eget malesuada non, porta sed ligula. Donec interdum suscipit mattis. Praesent dictum odio non nisi pharetra pellentesque. Phasellus nec quam sit amet nunc ullamcorper pulvinar nec quis tellus. Pellentesque consectetur tellus ac augue tincidunt luctus. Aenean consectetur, justo vel vestibulum cursus, risus arcu ornare dolor, nec elementum diam erat ac tortor. Morbi eleifend, erat sit amet posuere pretium, purus dui ullamcorper urna, eu rutrum mi augue tristique odio. Proin commodo mi non nibh interdum ultricies. Donec vitae leo quis ante vestibulum accumsan ut sed nulla. Maecenas ligula orci, fringilla ac elementum eget, congue quis dolor. Cras sagittis rhoncus faucibus.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rhoncus hendrerit mi, at pretium purus convallis non. Integer semper magna ac mauris hendrerit iaculis ac faucibus turpis. Praesent pharetra sem et nibh auctor auctor adipiscing augue rutrum. Ut sapien quam, bibendum eget malesuada non, porta sed ligula. Donec interdum suscipit mattis. Praesent dictum odio non nisi pharetra pellentesque. Phasellus nec quam sit amet nunc ullamcorper pulvinar nec quis tellus. Pellentesque consectetur tellus ac augue tincidunt luctus. Aenean consectetur, justo vel vestibulum cursus, risus arcu ornare dolor, nec elementum diam erat ac tortor. Morbi eleifend, erat sit amet posuere pretium, purus dui ullamcorper urna, eu rutrum mi augue tristique odio. Proin commodo mi non nibh interdum ultricies. Donec vitae leo quis ante vestibulum accumsan ut sed nulla. Maecenas ligula orci, fringilla ac elementum eget, congue quis dolor. Cras sagittis rhoncus faucibus.</p>
+                </article>
+            </div>
+        </div>
+    </div>
+    <footer id="main_footer">
+        <h3>HTML5 + CSS3 Basic</h3>
+        <address>Website Layout Basic</address>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Property Basic</title>
+    <style>
+        body {
+            /* 현재 폴더의 Desert.jpg */
+            background-image: url('Desert.jpg');
+            
+            /* 현재 폴더 내부의 Other 폴더의 Desert.jpg */
+            background-image: url('Other/Desert.jpg');
+            
+            /* 루트 폴더의 Desert.jpg */
+            /* 루트 폴더의 개념은 서버를 알아야 합니다. */
+            background-image: url('/Desert.jpg');
+        }
+    </style>
+</head>
+<body>
+    <h1>Lorem ipsum dolor amet.</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</body>
+</html>

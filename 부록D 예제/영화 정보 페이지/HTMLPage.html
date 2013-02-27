@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link rel="stylesheet" href="StyleSheet.css" />
+    <script src="prefixfree.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.7.2.js"></script>
+<script>
+    $(document).ready(function () {
+        // 네비게이션 버튼
+        $('#main_navigation a').click(function () {
+            // 변수를 선언합니다.
+            var target = $(this).attr('data-target');
+
+            // 클래스를 적용합니다.
+            $(':not([data-name=' + target + '])').removeClass('active');
+            $('[data-name=' + target + ']').addClass('active');
+        });
+
+        // 캐릭터 버튼
+        var currentPosition = 1;
+        $('#character > a:nth-child(1)').click(function () {
+            currentPosition -= 1;
+            if (currentPosition < 1) {
+                currentPosition = 3;
+            }
+            $('article').removeClass('show');
+            $('article:nth-of-type(' + currentPosition + ')').addClass('show');
+        });
+        $('#character > a:nth-child(2)').click(function () {
+            currentPosition += 1;
+            if (currentPosition > 3) {
+                currentPosition = 1;
+            }
+            $('article').removeClass('show');
+            $('article:nth-of-type(' + currentPosition + ')').addClass('show');
+        });
+    });
+</script>
+</head>
+<body>
+    <div id="body">
+    <hgroup id="title">
+        <h1 data-name="information">Information</h1>
+        <h1 data-name="character">Character</h1>
+        <h1 data-name="multimedia">Multimedia</h1>
+    </hgroup>
+    <section id="container">
+        <!-- 메인 페이지 -->
+        <div id="main" data-name="main" class="active">
+            <img src="Images/Middle_Foreground.png" />
+        </div>
+        <!-- 정보 페이지 -->
+        <div id="information" data-name="information">
+            <img src="Images/Information_Image.png" />
+            <div class="description">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum tempor nisi et fringilla. Pellentesque placerat ultricies tellus ac cursus. In eget feugiat mauris. Donec sagittis, tortor quis eleifend pretium, felis felis lacinia libero, in porta odio urna sit amet sem. Aliquam velit quam, auctor non aliquet eget, interdum eu ipsum. Vestibulum at erat sit amet tellus consectetur sodales. Sed mi enim, sagittis vel tincidunt sit amet, aliquet vitae magna. Nulla pulvinar pellentesque dolor, at elementum nisl commodo eget. In lacinia purus at tellus sollicitudin porta. Sed consequat risus sem, ut tincidunt turpis. Vestibulum nec ullamcorper enim. In lorem augue, imperdiet ac tincidunt sed, ornare ac enim. Donec enim risus, mattis non sollicitudin quis, tincidunt quis mi.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum tempor nisi et fringilla. Pellentesque placerat ultricies tellus ac cursus. In eget feugiat mauris. Donec sagittis, tortor quis eleifend pretium, felis felis lacinia libero, in porta odio urna sit amet sem. Aliquam velit quam, auctor non aliquet eget, interdum eu ipsum. Vestibulum at erat sit amet tellus consectetur sodales. Sed mi enim, sagittis vel tincidunt sit amet, aliquet vitae magna. Nulla pulvinar pellentesque dolor, at elementum nisl commodo eget. In lacinia purus at tellus sollicitudin porta. Sed consequat risus sem, ut tincidunt turpis. Vestibulum nec ullamcorper enim. In lorem augue, imperdiet ac tincidunt sed, ornare ac enim. Donec enim risus, mattis non sollicitudin quis, tincidunt quis mi.</p>
+            </div>
+        </div>
+        <!-- 캐릭터 페이지 -->
+        <div id="character" data-name="character">
+            <a href="#">Left Button</a>
+            <a href="#">Right Button</a>
+            <article class="show">
+                <h1>Princess Ann</h1>
+                <img src="Images/Character_Text_1.png" />
+                <img src="Images/Character_1.png" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum tempor nisi et fringilla. Pellentesque placerat ultricies tellus ac cursus. In eget feugiat mauris. Donec sagittis, tortor quis eleifend pretium, felis felis lacinia libero, in porta odio urna sit amet sem. Aliquam velit quam, auctor non aliquet eget, interdum eu ipsum. Vestibulum at erat sit amet tellus consectetur sodales. Sed mi enim, sagittis vel tincidunt sit amet, aliquet vitae magna. Nulla pulvinar pellentesque dolor, at elementum nisl commodo eget. In lacinia purus at tellus sollicitudin porta. Sed consequat risus sem, ut tincidunt turpis. Vestibulum nec ullamcorper enim. In lorem augue, imperdiet ac tincidunt sed, ornare ac enim. Donec enim risus, mattis non sollicitudin quis, tincidunt quis mi.</p>
+            </article>
+            <article>
+                <h1>Joe Bradley</h1>
+                <img src="Images/Character_Text_2.png" />
+                <img src="Images/Character_2.png" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum tempor nisi et fringilla. Pellentesque placerat ultricies tellus ac cursus. In eget feugiat mauris. Donec sagittis, tortor quis eleifend pretium, felis felis lacinia libero, in porta odio urna sit amet sem. Aliquam velit quam, auctor non aliquet eget, interdum eu ipsum. Vestibulum at erat sit amet tellus consectetur sodales. Sed mi enim, sagittis vel tincidunt sit amet, aliquet vitae magna. Nulla pulvinar pellentesque dolor, at elementum nisl commodo eget. In lacinia purus at tellus sollicitudin porta. Sed consequat risus sem, ut tincidunt turpis. Vestibulum nec ullamcorper enim. In lorem augue, imperdiet ac tincidunt sed, ornare ac enim. Donec enim risus, mattis non sollicitudin quis, tincidunt quis mi.</p>
+            </article>
+            <article>
+                <h1>Radovich</h1>
+                <img src="Images/Character_Text_3.png" />
+                <img src="Images/Character_3.png" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum tempor nisi et fringilla. Pellentesque placerat ultricies tellus ac cursus. In eget feugiat mauris. Donec sagittis, tortor quis eleifend pretium, felis felis lacinia libero, in porta odio urna sit amet sem. Aliquam velit quam, auctor non aliquet eget, interdum eu ipsum. Vestibulum at erat sit amet tellus consectetur sodales. Sed mi enim, sagittis vel tincidunt sit amet, aliquet vitae magna. Nulla pulvinar pellentesque dolor, at elementum nisl commodo eget. In lacinia purus at tellus sollicitudin porta. Sed consequat risus sem, ut tincidunt turpis. Vestibulum nec ullamcorper enim. In lorem augue, imperdiet ac tincidunt sed, ornare ac enim. Donec enim risus, mattis non sollicitudin quis, tincidunt quis mi.</p>
+            </article>
+        </div>
+        <!-- 영상 페이지 -->
+        <div id="multimedia" data-name="multimedia">
+            <video width="940" height="480" controls="controls"></video>
+        </div>
+    </section>
+    <nav id="main_navigation">
+        <ul>
+            <li><a href="#" data-target="information">Movie Info</a></li>
+            <li><a href="#" data-target="character">Character</a></li>
+            <li><a href="#" data-target="multimedia">Multimedia</a></li>
+            <li><a href="#">Download</a></li>
+        </ul>
+    </nav>
+        </div>
+</body>
+</html>

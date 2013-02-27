@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Tizen Image Gallery</title>
+    <link rel="stylesheet" href="StyleSheet.css" />
+    <script src="prefixfree.min.js"></script>
+    <script src="prefixfree.dynamic-dom.js"></script>
+    <script src="http://code.jquery.com/jquery-1.7.2.js"></script>
+    <script src="prefixfree.jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            // div 태그를 생성합니다.
+            for (var i = 0; i < 200; i++) {
+                // 변수를 선언합니다.
+                var output = '';
+                output += 'rotateY(' + i * 20 + 'deg) ';
+                output += 'translateY(' + i * 5 + 'px) ';
+                output += 'translateZ(' + 310 + 'px)';
+
+                // 태그를 생성합니다.
+                $('<div></div>').addClass('image').css({
+                    'width': 100,
+                    'height': 60,
+                    'transform': output
+                }).appendTo('#tizen_gallery');
+            }
+
+            // 변수를 선언합니다.
+            var isMouseDown = false;
+            var originalPosition = { x: 0, y: 0 };
+            var originalRotation = { x: 0, y: 0, z: 0 };
+            var originalScale = 1.0;
+            var createGalleryPosition = function () {
+                var output = '';
+                output += 'translateY(' + originalPosition.y + 'px) ';
+                output += 'rotateY(' + originalRotation.y + 'deg)';
+                return output;
+            };
+            var createViewportPosition = function () {
+                var output = '';
+                output += 'rotateX(-10deg) ';
+                output += 'scaleX(' + originalScale + ') ';
+                output += 'scaleY(' + originalScale + ')';
+                return output;
+            };
+
+            createGalleryPosition();
+            createViewportPosition();
+
+            // 이벤트를 연결합니다.
+            $(window).on({
+                mousedown: function (event) {
+                    // 마우스가 드래그 중임을 알립니다.
+                    isMouseDown = true;
+
+                    // 마우스 위치를 저장합니다.
+                    originalPosition.x = event.screenX;
+
+                    // 디폴트 이벤트를 제거합니다.
+                    event.preventDefault();
+                },
+                mouseup: function (event) {
+                    // 마우스 드래그를 해제합니다.
+                    isMouseDown = false;
+
+                    // 디폴트 이벤트를 제거합니다.
+                    event.preventDefault();
+                },
+                mousemove: function (event) {
+                    // 마우스를 드래그 중일 때
+                    if (isMouseDown) {
+                        // 마우스 이동 거리를 구합니다.
+                        distance = event.screenX - originalPosition.x;
+                        originalRotation.y += distance;
+                        originalPosition.y += distance / 3;
+
+                        // 스타일을 적용합니다.
+                        $('#tizen_gallery').css('transform', createGalleryPosition());
+                        $('#viewport').css('transform', createViewportPosition());
+
+                        // 마우스 위치를 저장합니다.
+                        originalPosition.x = event.screenX;
+                    }
+
+                    // 디폴트 이벤트를 제거합니다.
+                    event.preventDefault();
+                },
+                mousewheel: function (event) {
+                    // 변경된 휠 크기를 사용해 크기를 구합니다.
+                    var changeScale = originalScale + event.originalEvent.wheelDeltaY / 1000
+
+                    // 음수 크기가 나오지 않게합니다.
+                    if (changeScale > 0) {
+                        // 크기를 변경합니다.
+                        originalScale = changeScale;
+
+                        // 객체에 스타일을 적용합니다.
+                        $('#tizen_gallery').css('transform', createGalleryPosition());
+                        $('#viewport').css('transform', createViewportPosition());
+
+                        // 디폴트 이벤트를 제거합니다.
+                        event.preventDefault();
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="viewport">
+        <div id="tizen_gallery">
+
+        </div>
+    </div>
+</body>
+</html>

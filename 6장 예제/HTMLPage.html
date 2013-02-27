@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Chapter 6</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimun-scale=1.0, user-scalable=no" />
+    <!-- 초기화 -->
+    <style>
+        * { margin: 0; padding: 0; }
+        body { font-family: 'Helvetica', sans-serif; }
+        li { list-style: none; }
+        a { text-decoration: none; }
+    </style>
+    <!-- 헤더 -->
+    <style>
+        #main_header {
+            /* 배경 지정 */
+            height: 45px;
+            background: url('header_background.png');
+            
+            /* 자손 위치 지정 */
+            position: relative;
+            text-align: center;
+            line-height: 45px;
+        }
+        #main_header > h1 {
+            color: white;
+        }
+        #main_header > a, #main_header > label {
+            display: block;
+            height: 32px;
+            position: absolute;
+        }
+        #main_header > a.left {
+            width: 62px;
+            left: 5px; top: 7px;
+        }
+        #main_header > label.right {
+            width: 32px;
+            right: 5px; top: 7px;
+        }
+    </style>
+    <!-- 스프라이트 이미지 -->
+    <style>
+        #main_header > a.left {
+            background: url('sprites.png');
+            background-position: 0px 0px;
+            text-indent: -99999px ;
+        }
+        #main_header > label.right {
+            background: url('sprites.png');
+            background-position: -62px 0px;
+            text-indent: -99999px;
+        }
+    </style>
+    <!-- 토글 목록 -->
+    <style>
+        /* 토글 구현 */
+        #toggle { display: none; }
+        #toggle + #wrap > #toggle_gnb_wrap { display: none; }
+        #toggle:checked + #wrap > #toggle_gnb_wrap { display: block; }
+
+        /* 레이아웃 색상 */
+        #toggle_gnb_wrap {
+            background: #363636;
+            padding: 15px;
+        }
+        #toggle_gnb {
+            background: #FFFFFF;
+            padding: 5px;
+        }
+
+        /* 토글 목록 */
+        #toggle_gnb > ul { overflow: hidden; }
+        #toggle_gnb > ul > li {
+            width: 80px; float: left;
+        }
+    </style>
+    <!-- 네비게이션(1) -->
+    <style>
+        #top_gnb {
+            overflow: hidden;
+            border-bottom: 1px solid black;
+            background: #B42111;
+        }
+        #top_gnb > div > a {
+            /* 수평 정렬 */
+            float: left; width: 25%;
+
+            /* 크기 및 색상, 정렬 */
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+    <!-- 네비게이션(2) -->
+    <style>
+        #bottom_gnb {
+            display: table;
+            width: 100%;
+            border-bottom: 1px solid black;
+        }
+        #bottom_gnb > div {
+            display: table-cell;
+            position: relative;
+        }
+        #bottom_gnb > div > a {
+            display: block;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+        }
+        #bottom_gnb > div > a::before {
+            display: block;
+            position: absolute;
+            top: 9px; left: -1px;
+            width: 1px; height: 15px;
+            border-left: 1px solid black;
+            content: '';
+        }
+    </style>
+    <!-- 본문 -->
+    <style>
+        #section_header { padding: 20px; }
+        #section_article { padding: 10px; }
+    </style>
+    <!-- 푸터 -->
+    <style>
+        #main_footer {
+            padding: 10px;
+            border-top: 3px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <input id="toggle" type="checkbox" />
+    <div id="wrap">
+        <header id="main_header">
+            <a class="left" href="#">Main</a>
+            <h1>Mobile</h1>
+            <label class="right" for="toggle" onclick="">Toggle</label>
+        </header>
+        <div id="toggle_gnb_wrap">
+            <div id="toggle_gnb">
+                <ul>
+                    <li><a href="#">버튼</a></li>
+                    <li><a href="#">버튼</a></li>
+                    <li><a href="#">버튼</a></li>
+                    <li><a href="#">버튼</a></li>
+                    <li><a href="#">버튼</a></li>
+                    <li><a href="#">버튼</a></li>
+                    <li><a href="#">버튼</a></li>
+                    <li><a href="#">버튼</a></li>
+                </ul>
+            </div>
+        </div>
+        <nav id="top_gnb">
+            <div><a href="#">버튼</a></div>
+            <div><a href="#">버튼</a></div>
+            <div><a href="#">버튼</a></div>
+            <div><a href="#">버튼</a></div>
+        </nav>
+        <nav id="bottom_gnb">
+            <div><a href="#">버튼</a></div>
+            <div><a href="#">버튼</a></div>
+            <div><a href="#">버튼</a></div>
+            <div><a href="#">버튼</a></div>
+            <div><a href="#">버튼</a></div>
+        </nav>
+        <section id="main_section">
+            <header id="section_header">
+                <h1>Lorem ipsum</h1>
+                <time>2012-12-09 - Birthday</time>
+            </header>
+            <article id="section_article">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in magna libero. Sed nec pharetra nunc. Proin eget magna id ipsum eleifend cursus sit amet nec lectus. Nunc quis lacus magna. Aliquam blandit, sapien ut viverra fermentum, elit tortor ornare nisi, in luctus sem massa pulvinar turpis. Cras tincidunt dictum urna ut ultricies. Nullam diam nibh, pellentesque non laoreet ut, bibendum nec mauris. Maecenas pulvinar porttitor laoreet. Vivamus bibendum purus nisl, eget aliquam lectus. Maecenas justo libero, euismod sit amet suscipit eu, vulputate eget neque. Aliquam quam est, blandit nec iaculis non, suscipit vel nunc. Proin et odio aliquam erat pharetra accumsan et quis neque. Vivamus interdum accumsan leo eu adipiscing. Integer accumsan elit non turpis faucibus porttitor. Aliquam scelerisque nisi et turpis pretium at ultricies turpis pharetra.</p>
+                <br />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in magna libero. Sed nec pharetra nunc. Proin eget magna id ipsum eleifend cursus sit amet nec lectus. Nunc quis lacus magna. Aliquam blandit, sapien ut viverra fermentum, elit tortor ornare nisi, in luctus sem massa pulvinar turpis. Cras tincidunt dictum urna ut ultricies. Nullam diam nibh, pellentesque non laoreet ut, bibendum nec mauris. Maecenas pulvinar porttitor laoreet. Vivamus bibendum purus nisl, eget aliquam lectus. Maecenas justo libero, euismod sit amet suscipit eu, vulputate eget neque. Aliquam quam est, blandit nec iaculis non, suscipit vel nunc. Proin et odio aliquam erat pharetra accumsan et quis neque. Vivamus interdum accumsan leo eu adipiscing. Integer accumsan elit non turpis faucibus porttitor. Aliquam scelerisque nisi et turpis pretium at ultricies turpis pharetra.</p>
+                <br />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in magna libero. Sed nec pharetra nunc. Proin eget magna id ipsum eleifend cursus sit amet nec lectus. Nunc quis lacus magna. Aliquam blandit, sapien ut viverra fermentum, elit tortor ornare nisi, in luctus sem massa pulvinar turpis. Cras tincidunt dictum urna ut ultricies. Nullam diam nibh, pellentesque non laoreet ut, bibendum nec mauris. Maecenas pulvinar porttitor laoreet. Vivamus bibendum purus nisl, eget aliquam lectus. Maecenas justo libero, euismod sit amet suscipit eu, vulputate eget neque. Aliquam quam est, blandit nec iaculis non, suscipit vel nunc. Proin et odio aliquam erat pharetra accumsan et quis neque. Vivamus interdum accumsan leo eu adipiscing. Integer accumsan elit non turpis faucibus porttitor. Aliquam scelerisque nisi et turpis pretium at ultricies turpis pharetra.</p>
+            </article>
+        </section>
+        <footer id="main_footer">
+            <h3>HTML5 + CSS3 Basic</h3>
+            <address>Website Layout Basic</address>
+        </footer>
+    </div>
+</body>
+</html>

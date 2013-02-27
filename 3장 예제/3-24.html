@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Selector Basic</title>
+    <style>
+        /* input 태그가 사용 가능할 경우에
+           background-color 속성에 white 키워드를 적용합니다. */
+        input:enabled { background-color: white; }
+
+        /* input 태그가 사용 불가능할 경우에
+           background-color 속성에 white 키워드를 적용합니다. */
+        input:disabled { background-color: gray; }
+
+        /* input 태그에 초점이 맞추어진 경우에
+           background-color 속성에 white 키워드를 적용합니다. */
+        input:focus { background-color: orange; }
+    </style>
+</head>
+<body>
+    <h2>Enabled</h2>
+    <input />
+    <h2>Disabled</h2>
+    <input disabled="disabled"/>
+</body>
+</html>

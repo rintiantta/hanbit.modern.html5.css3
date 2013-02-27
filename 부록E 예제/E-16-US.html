@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>SVG Map With Rapael</title>
+    <style>
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.7.2.js"></script>
+    <script src="USData.js"></script>
+    <script src="raphael-min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Create Function
+            function randomColor() {
+                var letters = '0123456789ABCDEF'.split('');
+                var color = '#';
+                for (var i = 0; i < 6; i++)
+                    color += letters[Math.round(Math.random() * 15)];
+                return color;
+            }
+
+            // Create Variable
+            var canvas = document.getElementById('map_image');
+            var paper = Raphael(canvas, 832, 528);
+
+            $.each(USData, function (index, item) {
+                // Create Path
+                var path = paper.path(item['d']);
+
+                // Stroke Path
+                path.attr('stroke', item['stroke']);
+
+                // Fill Path
+                if (item['fill'] != 'none') {
+                    path.attr('fill', randomColor());
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <figure id="map_image">
+
+    </figure>
+</body>
+</html>

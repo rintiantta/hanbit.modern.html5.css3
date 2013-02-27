@@ -1,0 +1,39 @@
+﻿* { margin: 0; padding: 0; }
+
+html, body {
+    height: 100%; overflow: hidden;
+    background: #141414;
+}
+
+.image {
+    /* 태그 중앙 정렬 */
+    width: 100px;
+    height: 60px;
+    
+    position: absolute;
+    left: 0; top: 0;
+
+    /* 모양 지정 */
+    border: 3px solid white;
+    box-sizing: border-box;
+    background: url('http://placehold.it/100x60');
+    background-size: 100% 100%;
+}
+
+#viewport {
+    transform-style: preserve-3d;
+    perspective: 2000px;
+    position: relative;
+    height: 100%;
+    transform: rotateX(-10deg);
+}
+
+#tizen_gallery {
+    width: 100px; height: 60px;
+    transform-style: preserve-3d;
+    position: absolute;
+    left: 50%; top: 50%;
+    
+    margin-left: -50px;
+    margin-top: -30px;
+}

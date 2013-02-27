@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>SVG Map With Rapael</title>
+    <style>
+        body {
+            width: 960px;
+            margin: 0 auto;
+        }
+
+        #main_section { overflow: hidden; }
+        #main_article {
+            width: 460px;
+            float: left;
+        }
+        #map_image {
+            width: 500px;
+            float: right;
+        }
+        figure { margin: 0; padding: 0; }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.7.2.js"></script>
+    <script src="KoreaMapPathData.js"></script>
+    <script src="raphael-min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Create Function
+            function randomColor() {
+                var letters = '0123456789ABCDEF'.split('');
+                var color = '#';
+                for (var i = 0; i < 6; i++)
+                    color += letters[Math.round(Math.random() * 15)];
+                return color;
+            }
+
+            // Create Variable
+            var canvas = document.getElementById('map_image');
+            var paper = Raphael(canvas, 500, 716);
+
+            $.each(koreaMapPathData, function (index, item) {
+                // Create Path
+                var path = paper.path(item['d']);
+
+                // Stroke Path
+                path.attr('stroke', item['stroke']);
+
+                // Fill Path
+                if (item['fill'] != 'none') {
+                    path.attr('fill', randomColor());
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header id="main_header">
+        <h1>Korea Map Path Data</h1>
+    </header>
+    <section id="main_section">
+        <article id="main_article">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vestibulum dapibus venenatis. Curabitur egestas malesuada eleifend. In ut adipiscing dolor. Ut quis tellus ut tortor dignissim pulvinar. Vestibulum malesuada porttitor ligula et viverra. Etiam quis ipsum sed libero elementum ultricies. Quisque aliquam, tortor vitae adipiscing ultrices, est metus tincidunt sem, eget blandit est purus vel lectus. Mauris varius neque a tellus elementum facilisis. Curabitur nec sem quis tellus elementum lacinia tincidunt a tellus. Nullam luctus egestas eleifend. Suspendisse arcu erat, lobortis eu imperdiet at, fringilla id lacus. Sed vitae mi mi, vel varius libero. Morbi hendrerit leo et sapien imperdiet pretium. Sed urna risus, consequat sed pretium at, egestas a nunc.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vestibulum dapibus venenatis. Curabitur egestas malesuada eleifend. In ut adipiscing dolor. Ut quis tellus ut tortor dignissim pulvinar. Vestibulum malesuada porttitor ligula et viverra. Etiam quis ipsum sed libero elementum ultricies. Quisque aliquam, tortor vitae adipiscing ultrices, est metus tincidunt sem, eget blandit est purus vel lectus. Mauris varius neque a tellus elementum facilisis. Curabitur nec sem quis tellus elementum lacinia tincidunt a tellus. Nullam luctus egestas eleifend. Suspendisse arcu erat, lobortis eu imperdiet at, fringilla id lacus. Sed vitae mi mi, vel varius libero. Morbi hendrerit leo et sapien imperdiet pretium. Sed urna risus, consequat sed pretium at, egestas a nunc.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vestibulum dapibus venenatis. Curabitur egestas malesuada eleifend. In ut adipiscing dolor. Ut quis tellus ut tortor dignissim pulvinar. Vestibulum malesuada porttitor ligula et viverra. Etiam quis ipsum sed libero elementum ultricies. Quisque aliquam, tortor vitae adipiscing ultrices, est metus tincidunt sem, eget blandit est purus vel lectus. Mauris varius neque a tellus elementum facilisis. Curabitur nec sem quis tellus elementum lacinia tincidunt a tellus. Nullam luctus egestas eleifend. Suspendisse arcu erat, lobortis eu imperdiet at, fringilla id lacus. Sed vitae mi mi, vel varius libero. Morbi hendrerit leo et sapien imperdiet pretium. Sed urna risus, consequat sed pretium at, egestas a nunc.</p>
+        </article>
+        <figure id="map_image">
+
+        </figure>
+    </section>
+</body>
+</html>

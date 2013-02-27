@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>TEST</title>
+    <style>
+        header {
+            position: absolute;
+            left: 0; top: 0; right: 0;
+            height: 50px;
+            background: black;
+        }
+        #wheel {
+            position: absolute;
+            left: 50%; top: 50%;
+            transform-style: preserve-3d;
+            animation: rint 10s infinite linear;
+        }
+        .item {
+            position:absolute;
+            margin-left: -100px; margin-top:-100px;
+            width: 190px; height: 190px;
+            border: 5px solid black;
+            background: green; 
+        }
+        .item:nth-child(1) { transform: rotateY(  0deg) translateZ(-200px); }
+        .item:nth-child(2) { transform: rotateY( 60deg) translateZ(-200px); }
+        .item:nth-child(3) { transform: rotateY(120deg) translateZ(-200px); }
+        .item:nth-child(4) { transform: rotateY(180deg) translateZ(-200px); }
+        .item:nth-child(5) { transform: rotateY(240deg) translateZ(-200px); }
+        .item:nth-child(6) { transform: rotateY(300deg) translateZ(-200px); }
+        @keyframes rint {
+            from {  transform: rotateX(-20deg) rotateY(0deg); }
+            to {  transform: rotateX(-20deg)  rotateY(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div id="viewport">
+        <div id="wheel">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </div>
+    <header></header>
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>SVG Map With Rapael</title>
+    <style>
+        body {
+            width: 960px;
+            margin: 0 auto;
+        }
+
+        #main_section { overflow: hidden; }
+        #main_article {
+            width: 460px;
+            float: left;
+        }
+        #map_image {
+            width: 500px;
+            float: right;
+        }
+
+        figure { margin: 0; padding: 0; }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.7.2.js"></script>
+    <script src="KoreaMapPathData.js"></script>
+    <script src="raphael-min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var canvas = document.getElementById('map_image');
+            var paper = Raphael(canvas, 500, 716);
+        });
+    </script>
+</head>
+<body>
+    <header id="main_header">
+        <h1>Korea Map Path Data</h1>
+    </header>
+    <section id="main_section">
+        <article id="main_article">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </article>
+        <figure id="map_image">
+
+        </figure>
+    </section>
+</body>
+</html>
