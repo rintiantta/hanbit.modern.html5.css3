@@ -146,9 +146,13 @@ p442. 코드 11-19 화면 너비에 따른 스타일시트 구분(2)
 
 ###531 페이지 - 동그란님 발견
 부록C의 C-13.less 예제파일 그대로 컴파일하면 19라인 부터 에러 떠요. 
+```less
 div:nth-child(12){ background: hsl(@hue +100, @saturation, @lightness); }
+```
 "@hue +"뒤에 띄어쓰고 단위를 써야 되네요. 
+```less
 div:nth-child(12){ background: hsl(@hue + 100, @saturation, @lightness); }
+```
  
  
  
